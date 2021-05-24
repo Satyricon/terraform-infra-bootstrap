@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "main" {
-  name                      = "${join("", split("-", join("", [var.prefix, var.project_name])))}sa"
+  name                      = "${replace("${var.prefix}${var.project_name}", "-", "")}sa"
   resource_group_name       = azurerm_resource_group.main.name
   location                  = azurerm_resource_group.main.location
   account_kind              = "StorageV2"
