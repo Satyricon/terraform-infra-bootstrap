@@ -59,20 +59,18 @@ variable "aks_config" {
     aks_agent_image_version = string
     helm_repository         = string
     helm_chart              = string
-    pod_cpu_requests        = string
-    pod_cpu_limits          = string
+    helm_version            = string
   })
   description = "Pod and HPA configurations"
   default = {
     node_count              = 1
-    vm_size                 = "Standard_DS2_v2"
-    kubernetes_version      = "1.19.9"
+    vm_size                 = "Standard_D4as_v5"
+    kubernetes_version      = "1.24.6"
     aks_agent_image         = "yubarseg/ado-agent"
     aks_agent_image_version = "latest"                         # Image version of Azure Devops agent
     helm_repository         = "https://satyricon.github.io/helm-charts/"
     helm_chart              = "ado-agent-helm-chart"
-    pod_cpu_requests        = "100m" # Agent Pod's CPU resource request
-    pod_cpu_limits          = "300m" # Agent Pod's CPU resource limit
+    helm_version            = "0.2.0"
   }
 }
 

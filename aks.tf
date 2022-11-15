@@ -30,20 +30,6 @@ resource "azurerm_kubernetes_cluster" "main" {
     dns_service_ip     = "172.20.0.10"
   }
 
-  addon_profile {
-    http_application_routing {
-      enabled = false
-    }
-
-    kube_dashboard {
-      enabled = false
-    }
-
-    oms_agent {
-      enabled                    = true
-      log_analytics_workspace_id = azurerm_log_analytics_workspace.main.id
-    }
-  }
   tags = var.resource_tags
 }
 

@@ -10,7 +10,7 @@ resource "azurerm_storage_account" "main" {
   network_rules {
     default_action             = "Deny"
     bypass                     = ["None"]
-    ip_rules                   = [chomp(data.http.myip.body)]
+    ip_rules                   = [chomp(data.http.myip.response_body)]
     virtual_network_subnet_ids = [azurerm_subnet.main.id]
   }
 

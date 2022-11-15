@@ -13,6 +13,7 @@ resource "helm_release" "aks-ado-agent" {
   name       = "aks-ado-agent"
   repository = var.aks_config.helm_repository
   chart      = var.aks_config.helm_chart
+  version    = var.aks_config.helm_version
   namespace  = "default"
   timeout    = 600
 
@@ -64,16 +65,6 @@ resource "helm_release" "aks-ado-agent" {
   set {
     name  = "image.version"
     value = var.aks_config.aks_agent_image_version
-  }
-
-  set {
-    name  = "hpa.pod_cpu_requests"
-    value = var.aks_config.pod_cpu_requests
-  }
-
-  set {
-    name  = "hpa.pod_cpu_limits"
-    value = var.aks_config.pod_cpu_limits
   }
 
   set {
