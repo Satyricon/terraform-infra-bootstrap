@@ -1,7 +1,7 @@
 variable "terraform_version" {
   type        = string
   description = "Terraform version to be installed"
-  default     = "0.15.3"
+  default     = "1.5.0"
 }
 
 variable "location" {
@@ -25,7 +25,6 @@ variable "resource_tags" {
   type        = map(string)
   description = "Tags to be applied for all resources"
   default = {
-    owner      = "Yuri Barseghyan"
     managed_by = "Terraform"
     usage      = "Infrastructure provisioning automation resources"
   }
@@ -35,7 +34,6 @@ variable "resource_tags" {
 variable "azure_dev_ops_url" {
   type        = string
   description = "Azure DevOps URL"
-  default     = "https://dev.azure.com/yubarseg"
 }
 
 variable "azure_dev_ops_agent_pool_name" {
@@ -64,8 +62,8 @@ variable "aks_config" {
   description = "Pod and HPA configurations"
   default = {
     node_count              = 1
-    vm_size                 = "Standard_D4as_v5"
-    kubernetes_version      = "1.24.6"
+    vm_size                 = "Standard_D2as_v5"
+    kubernetes_version      = "1.25.6"
     aks_agent_image         = "yubarseg/ado-agent"
     aks_agent_image_version = "latest"                         # Image version of Azure Devops agent
     helm_repository         = "https://satyricon.github.io/helm-charts/"
